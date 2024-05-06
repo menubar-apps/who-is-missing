@@ -13,7 +13,7 @@ struct whosmissingApp: App {
     @ObservedObject var viewModel: ViewModel = ViewModel()
     
     var body: some Scene {
-        MenuBarExtra("Utility App", image: "bx-rocket") {
+        MenuBarExtra("App", image: "bx-rocket") {
             ContentView(viewModel: ViewModel())
                 .frame(width: 400, height: 600)
         }
