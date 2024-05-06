@@ -12,6 +12,7 @@
 		768232612BE0529E00C9053B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 768232602BE0529E00C9053B /* Alamofire */; };
 		768232632BE6879E00C9053B /* ExpeditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768232622BE6879E00C9053B /* ExpeditionView.swift */; };
 		768232652BE6944400C9053B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768232642BE6944400C9053B /* Extension.swift */; };
+		768232672BE984B900C9053B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768232662BE984B900C9053B /* AboutView.swift */; };
 		76DE628E2BE04A8300F847E1 /* whosmissingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DE628D2BE04A8300F847E1 /* whosmissingApp.swift */; };
 		76DE62902BE04A8300F847E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DE628F2BE04A8300F847E1 /* ContentView.swift */; };
 		76DE62922BE04A8600F847E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DE62912BE04A8600F847E1 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		7682325D2BE0520800C9053B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		768232622BE6879E00C9053B /* ExpeditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionView.swift; sourceTree = "<group>"; };
 		768232642BE6944400C9053B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		768232662BE984B900C9053B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		76DE628A2BE04A8300F847E1 /* whosmissing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whosmissing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DE628D2BE04A8300F847E1 /* whosmissingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whosmissingApp.swift; sourceTree = "<group>"; };
 		76DE628F2BE04A8300F847E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				76DE628F2BE04A8300F847E1 /* ContentView.swift */,
 				7682325B2BE0500B00C9053B /* AstronautView.swift */,
 				768232622BE6879E00C9053B /* ExpeditionView.swift */,
+				768232662BE984B900C9053B /* AboutView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				76DE628E2BE04A8300F847E1 /* whosmissingApp.swift in Sources */,
 				7682325C2BE0500B00C9053B /* AstronautView.swift in Sources */,
 				76DE629E2BE04B7100F847E1 /* Client.swift in Sources */,
+				768232672BE984B900C9053B /* AboutView.swift in Sources */,
 				7682325E2BE0520800C9053B /* ViewModel.swift in Sources */,
 				76DE62A02BE04B7900F847E1 /* DTO.swift in Sources */,
 				768232632BE6879E00C9053B /* ExpeditionView.swift in Sources */,
@@ -327,11 +331,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Who's Missing?";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavelmakhov.whosmissing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,11 +361,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Who's Missing?";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavelmakhov.whosmissing;
 				PRODUCT_NAME = "$(TARGET_NAME)";

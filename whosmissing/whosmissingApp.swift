@@ -18,5 +18,11 @@ struct whosmissingApp: App {
                 .frame(width: 400, height: 600)
         }
         .menuBarExtraStyle(.window)
+        
+        Window("About", id: "about-window") {
+            AboutView()
+                .frame(width: 250, height: 300)
+        }
+        .windowResizability(.contentSize)
     }
 }

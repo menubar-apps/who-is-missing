@@ -8,55 +8,86 @@
 import SwiftUI
 
 struct ExpeditionView: View {
+    @Environment(\.openWindow) var openWindow
+    
     var expedition: Expedition?
     var body: some View {
-        VStack(spacing: 0) {
-            if let ex = expedition {
-                HStack {
-                    AsyncImage(url: ex.expeditionPatch) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .clipShape(Circle())
-                    } placeholder: {
-                        Color.gray
-                            .clipShape(Circle())
-                    }
-                    .frame(width: 50, height: 50)
-                    
-                    VStack(alignment: .leading) {
-                        Text("Expedition #\(ex.number)")
-                            .font(.headline)
-                        if let startDate =  ex.expeditionStartDate {
-                            Text("Launched \(startDate.formattedDateString())")
-                                .foregroundStyle(.secondary)
+        HStack {
+            VStack(spacing: 0) {
+                if let ex = expedition {
+                    HStack {
+                        AsyncImage(url: ex.expeditionPatch) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(Circle())
+                        } placeholder: {
+                            Color.gray
+                                .clipShape(Circle())
                         }
+                        .frame(width: 50, height: 50)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Expedition #\(ex.issExpedition ?? -1)")
+                                .font(.headline)
+                            if let startDate =  ex.expeditionStartDate {
+                                Text("Launched \(startDate.formattedDateString())")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        
+                        Spacer()
+                        Menu {
+                            Button(action: {
+                                NSApplication.shared.activate(ignoringOtherApps: true)
+                                openWindow(id: "about-window")
+                            } ) {
+                                Image(systemName: "info")
+                                Text("About")
+                            }
+
+                            Button(action: {
+                                NSApplication.shared.terminate(nil)
+                            }) {
+                                Image(systemName: "power")
+                                Text("Quit")
+
+                            }
+                        } label: {
+                            Image(systemName: "line.3.horizontal")
+                                .foregroundColor(.secondary)
+                        }
+                        .menuStyle(.borderlessButton)
+                        .frame(width: 20, height: 16)
+                        .padding(8)
+                        .padding(.trailing, 2)
+                        .focusable(false)
+                        .menuIndicator(.hidden)
+                        .contentShape(Rectangle())
+                    }
+                    .padding(.horizontal)
+                    .padding(.top)
+                    
+                    
+                    if let startDate = ex.expeditionStartDate, let endDate = ex.expeditionEndDate {
+                        let currentDate = Date().timeIntervalSince1970
+                        let totalDuration = endDate - startDate
+                        let elapsedDuration = currentDate - startDate
+                        
+                        let progress = CGFloat(elapsedDuration / totalDuration)
+                        ProgressView(value: progress)
+                            .frame(height: 20)
+                            .padding(.horizontal)
+                    } else {
+                        Text("Expedition dates not available")
+                            .padding()
                     }
                     
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.top)
-                
-                
-                if let startDate = ex.expeditionStartDate, let endDate = ex.expeditionEndDate {
-                    let currentDate = Date().timeIntervalSince1970
-                    let totalDuration = endDate - startDate
-                    let elapsedDuration = currentDate - startDate
-                    
-                    let progress = CGFloat(elapsedDuration / totalDuration)
-                    ProgressView(value: progress)
-                        .frame(height: 20)
-                        .padding(.horizontal)
-                } else {
-                    Text("Expedition dates not available")
-                        .padding()
+                    Divider()
+                        .padding(0)
                 }
                 
-                Divider()
-                    .padding(0)
             }
-            
         }
     }
 }
